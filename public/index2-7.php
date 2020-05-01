@@ -11,7 +11,7 @@ function getCurrentTime() {
     if ($hours == 1 || $hours == 21){
         $currentTime = $hours . " час ";
     }
-    else if ($hours > 4 || $hours < 21) {
+    else if ($hours > 4 && $hours < 21) {
         $currentTime = $hours . " часов ";
     }
     else {
