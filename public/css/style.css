@@ -12,10 +12,15 @@ html, body {
     flex-grow: 1;
 }
 
+.container {
+    width: 1140px;
+    margin: 0 auto;
+}
+
 .menu {
     list-style-type: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .menu__list:hover .drop__ul {
