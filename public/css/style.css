@@ -11,3 +11,17 @@ html, body {
 .top {
     flex-grow: 1;
 }
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.menu__list:hover .drop__ul {
+    display: flex;
+}
+
+.drop__ul {
+    display: none;
+}
