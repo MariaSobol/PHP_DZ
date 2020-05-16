@@ -30,7 +30,7 @@ function saveImage(string $name, string $path, int $size){
     $con = getConnection();
     $name = mysqli_real_escape_string($con, $name);
     $path = mysqli_real_escape_string($con, $path);
-    $size = mysqli_real_escape_string($con, $size);
+    $size = (int)$size;
 
     $sql = "INSERT INTO images (name, path, size)
         VALUES ('{$name}', '{$path}', '{$size}')";
