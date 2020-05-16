@@ -3,5 +3,5 @@
 ?>
 
 <?php foreach ($files as $image): ?>
-    <a href="/img/<?=$image?>" target="_blank"><img src="/img/small/<?=$image?>" alt=""></a>
+    <a href="/photo.php?id=<?=$image['id']?>" target="_blank"><img src="/img/small/<?=$image['name']?>" alt=""></a>
 <?php endforeach;?>

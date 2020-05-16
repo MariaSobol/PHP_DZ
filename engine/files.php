@@ -5,7 +5,7 @@
  */
 
 function uploadFile(string $destination, string $attributeName = 'file'){
-    move_uploaded_file(
+     move_uploaded_file(
         $_FILES[$attributeName]['tmp_name'],
         $destination
     );

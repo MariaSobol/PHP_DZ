@@ -21,37 +21,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
        $filename = IMAGES_DIR . $_FILES['my_file']['name'];
        uploadFile($filename, 'my_file');
        img_resize($filename, IMAGES_DIR . "small/" . $_FILES['my_file']['name'], 200, 150);
+       saveImage($_FILES['my_file']['name'], $filename, $_FILES['my_file']['size']);
     }
 
     redirect('/gallery.php');
 }
 
-//Загрузка галереи при условии существования папки img
-if(file_exists(IMAGES_DIR))
-{
-    $files = getGalleryFiles(IMAGES_DIR);
-}
+$files = getGallery();
+
+include VIEWS_DIR . "main.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ДЗ №4</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div class="wrapper container">
-    <div class="top">
-        <?php
-        include VIEWS_DIR . "menu.php";
-        include VIEWS_DIR . "gallery.php";
-        include VIEWS_DIR . "upload_form.php";
-        ?>
-    </div>
-    <footer class="footer">
-        <p>Copyright &copy; <?=$year?> Maria Sobol</p>
-    </footer>
-</div>
-</body>
-</html>
+
+
+
