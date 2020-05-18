@@ -30,3 +30,25 @@ html, body {
 .drop__ul {
     display: none;
 }
+
+.product-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product__img {
+    height: 300px;
+    width: 300px;
+}
+
+.main-image{
+    height: 500px;
+    width: 500px;
+}
+
+.comment-form > input{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
