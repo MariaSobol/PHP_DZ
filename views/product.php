@@ -11,8 +11,6 @@
 </head>
 <body>
 <div class="container">
-    <?php include VIEWS_DIR . "menu.php";?>
-
     <h1><?=$product['name']?></h1>
     <a href="<?=$product['imagelink']?>" target="_blank"><img class="main-image" src="<?=$product['imagelink']?>" alt="<?=$product['name']?>"></a>
     <p>Цена: <?=$product['price']?> руб.</p>

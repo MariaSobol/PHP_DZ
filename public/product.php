@@ -3,10 +3,11 @@ require_once __DIR__ . '/../config/main.php';
 require ENGINE_DIR . "base.php";
 require ENGINE_DIR . "shop.php";
 require ENGINE_DIR . "comments.php";
+require ENGINE_DIR . "render.php";
 
 $menu = ['Главная', 'Каталог', 'Контакты'];
 
-$id = (int)$_GET['id'];
+$id = get('id');
 $product = getProduct($id);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,4 +20,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $comments = getComments($id);
 
-include VIEWS_DIR . "product.php";
+$content = render("product", ['product' => $product, 'comments' => $comments]);
+echo render('layout', ['content' => $content, 'menu' => $menu]);
