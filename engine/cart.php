@@ -36,3 +36,8 @@ function addToCart($product_id, $product_name, $product_price, $quantity = 1){
     setSessionParam('cart', $cart);
 }
 
+function changeQuantityByProductId($product_id, $quantity = 1){
+    $cart = getSessionParam('cart');
+    $cart[$product_id]['quantity'] +=  $quantity;
+    setSessionParam('cart', $cart);
+}

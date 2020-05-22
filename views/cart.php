@@ -10,10 +10,10 @@
         <div><?=$product['product_price']?> руб.</div>
         <div><?=$product['quantity']?></div>
         <div><?=$product['product_price'] * $product['quantity']?> руб.</div>
-<!--        <form action="" method="post">-->
-<!--            <input id="--><?//=$product_id?><!--" name="add" value="+" type="submit"/>-->
-<!--            <input name="operation" value="-" type="submit"/>-->
-<!--            <input name="operation" value="X" type="submit"/>-->
-<!--        </form>-->
+        <form action="" method="post">
+            <button type="submit" name="add" value="<?=$product_id?>">+</button>
+            <button type="submit" name="reduce" value="<?=$product_id?>">-</button>
+            <button type="submit" name="delete" value="<?=$product_id?>">X</button>
+        </form>
     </div>
 <?php endforeach;?>
