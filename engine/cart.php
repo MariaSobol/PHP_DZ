@@ -38,6 +38,27 @@ function addToCart($product_id, $product_name, $product_price, $quantity = 1){
 
 function changeQuantityByProductId($product_id, $quantity = 1){
     $cart = getSessionParam('cart');
+
     $cart[$product_id]['quantity'] +=  $quantity;
+
+    if($cart[$product_id]['quantity'] < 1) {
+        unset($cart[$product_id]);
+    }
+
     setSessionParam('cart', $cart);
+}
+
+function deleteFromCart($product_id){
+    $cart = getSessionParam('cart');
+    unset($cart[$product_id]);
+    setSessionParam('cart', $cart);
+}
+
+function getCartSum(){
+    $cart = getSessionParam('cart');
+    $sum = 0;
+    foreach($cart as $product) {
+        $sum += $product['product_price'] * $product['quantity'];
+    }
+    return $sum;
 }

@@ -17,3 +17,6 @@
         </form>
     </div>
 <?php endforeach;?>
+<br>
+<h2>Итого: <?=$sum?> руб.</h2>
+
