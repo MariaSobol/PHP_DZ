@@ -5,6 +5,7 @@ require ENGINE_DIR . "shop.php";
 require ENGINE_DIR . "comments.php";
 require ENGINE_DIR . "render.php";
 require ENGINE_DIR . "sessions.php";
+require ENGINE_DIR . "cart.php";
 
 $menu = ['Главная', 'Каталог', 'Контакты', 'Корзина'];
 
@@ -13,9 +14,7 @@ $product = getProduct($id);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(post('add_to_cart')){
-        $cart = [];
-        $cart[] = $product;
-        setSessionParam('cart', $cart);
+        addToCart($id);
     }
     if(post('add_comment')) {
         $author_name = post('author');
