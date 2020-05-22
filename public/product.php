@@ -6,8 +6,7 @@ require ENGINE_DIR . "comments.php";
 require ENGINE_DIR . "render.php";
 require ENGINE_DIR . "sessions.php";
 require ENGINE_DIR . "cart.php";
-
-$menu = ['Главная', 'Каталог', 'Контакты', 'Корзина'];
+$menu = include_once ENGINE_DIR . "menu.php";
 
 $id = get('id');
 $product = getProduct($id);

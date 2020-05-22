@@ -3,9 +3,9 @@
 ?>
 
 <ul class="menu">
-    <?php foreach ($menu as $item): ?>
+    <?php foreach ($menu as $name => $link): ?>
         <li class="menu__list">
-            <a href="#"><?=$item?></a>
+            <a href="/<?=$link?>"><?=$name?></a>
         </li>
     <?php endforeach;?>
 </ul>

@@ -4,6 +4,7 @@ require ENGINE_DIR . "base.php";
 require ENGINE_DIR . "sessions.php";
 require ENGINE_DIR . "cart.php";
 require ENGINE_DIR . "render.php";
+$menu = include_once ENGINE_DIR . "menu.php";
 
 $cart = getSessionParam('cart');
 $sum = getCartSum();
@@ -20,7 +21,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     redirect('/cart.php');
 }
 
-echo renderWithWrap('layout', ['cart' => ['cart' => $cart, 'sum' => $sum]]);
+echo renderWithWrap('layout', [
+                                    'menu' => ['menu' => $menu],
+                                    'cart' => ['cart' => $cart, 'sum' => $sum]]);
 
 
 
