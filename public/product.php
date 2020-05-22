@@ -4,21 +4,31 @@ require ENGINE_DIR . "base.php";
 require ENGINE_DIR . "shop.php";
 require ENGINE_DIR . "comments.php";
 require ENGINE_DIR . "render.php";
+require ENGINE_DIR . "sessions.php";
 
-$menu = ['Главная', 'Каталог', 'Контакты'];
+$menu = ['Главная', 'Каталог', 'Контакты', 'Корзина'];
 
 $id = get('id');
 $product = getProduct($id);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $author_name = post('author');
-    $content = post('content');
-    saveComment($id, $author_name, $content);
+    if(post('add_to_cart')){
+        $cart = [];
+        $cart[] = $product;
+        setSessionParam('cart', $cart);
+    }
+    if(post('add_comment')) {
+        $author_name = post('author');
+        $content = post('content');
+        saveComment($id, $author_name, $content);
+    }
 
     redirect('/product.php?id=' . "{$id}");
 }
 
 $comments = getComments($id);
 
-$content = render("product", ['product' => $product, 'comments' => $comments]);
-echo render('layout', ['content' => $content, 'menu' => $menu]);
+echo renderWithWrap('layout', [
+                    'menu' => ['menu' => $menu],
+                    'product' => ['product' => $product, 'comments' => $comments]
+                    ]);

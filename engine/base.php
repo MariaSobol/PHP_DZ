@@ -17,3 +17,7 @@ function post($name) {
     $name = htmlspecialchars(strip_tags($name));
     return $_POST[$name];
 }
+
+function getHash($string) {
+    return md5($string . "sd5gdf");
+}
