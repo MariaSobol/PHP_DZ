@@ -6,4 +6,8 @@ require ENGINE_DIR . "cart.php";
 require ENGINE_DIR . "render.php";
 
 $cart = getSessionParam('cart');
-var_dump($cart);
+
+echo renderWithWrap('layout', ['cart' => ['cart' => $cart]]);
+
+
+

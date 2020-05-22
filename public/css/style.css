@@ -52,3 +52,11 @@ html, body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.product-in-cart{
+    display: grid;
+    height: 50px;
+    grid-template-columns: 30% 20% 15% 20% 15%;
+}
+
+

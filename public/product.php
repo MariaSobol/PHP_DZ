@@ -14,7 +14,8 @@ $product = getProduct($id);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(post('add_to_cart')){
-        addToCart($id);
+        //addToCart($id);
+        addToCart($id, $product['name'], $product['price']);
     }
     if(post('add_comment')) {
         $author_name = post('author');
