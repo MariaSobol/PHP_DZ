@@ -14,3 +14,11 @@ function getSessionParam($key){
     setSession();
     return $_SESSION[$key];
 }
+
+function logout(){
+    setSession();
+    foreach ($_SESSION as $key => $value){
+        unset($_SESSION[$key]);
+    }
+    session_destroy();
+}
