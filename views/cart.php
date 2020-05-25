@@ -19,4 +19,7 @@
 <?php endforeach;?>
 <br>
 <h2>Итого: <?=$sum?> руб.</h2>
-
+<br>
+<form action="/cart/make_order" method="post">
+    <input value="Оформить заказ" type="submit"/>
+</form>
