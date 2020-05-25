@@ -6,8 +6,10 @@
 <a href="<?=$product['imagelink']?>" target="_blank"><img class="main-image" src="<?=$product['imagelink']?>" alt="<?=$product['name']?>"></a>
 <p>Цена: <?=$product['price']?> руб.</p>
 
-<form action="" method="post">
-<input name="add_to_cart" value="Купить" type="submit"/>
+<form action="/cart/add" method="post">
+    <input type="hidden" name="product_id" value="<?=$product['id']?>">
+    <input type="number" name="quantity">
+    <input value="Добавить в корзину" type="submit"/>
 </form>
 
 <p class="description"><?=$product['description']?></p>

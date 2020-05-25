@@ -5,3 +5,4 @@ define("VIEWS_DIR", DOCUMENT_ROOT . "views/");
 define("IMAGES_DIR", DOCUMENT_ROOT . "public/img/");
 define("VENDOR_DIR", DOCUMENT_ROOT . "vendor/");
 define("CONFIG_DIR", DOCUMENT_ROOT . "config/");
+define("PAGES_DIR", DOCUMENT_ROOT . "pages/");

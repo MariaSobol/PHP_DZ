@@ -14,7 +14,7 @@ $menu = ['Главная', 'Каталог', 'Контакты']
 <head>
     <meta charset="UTF-8">
     <title>ДЗ №3</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../public/css/style.css">
 </head>
 <body>
 <div class="wrapper">

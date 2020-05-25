@@ -1,13 +1,17 @@
 <?php
-require_once __DIR__ . '/../config/main.php';
-require ENGINE_DIR . "base.php";
-require ENGINE_DIR . "sessions.php";
-require ENGINE_DIR . "cart.php";
-require ENGINE_DIR . "render.php";
-$menu = include_once ENGINE_DIR . "menu.php";
+$menu = include_once CONFIG_DIR . "menu.php";
 
-$cart = getSessionParam('cart');
-$sum = getCartSum();
+//$cart = getSessionParam('cart');
+$productsIds = array_keys(getSessionParam('cart'));
+$products = getProductsbyIds($productsIds);
+$cart = [];
+foreach ($products as $product){
+    $cart[] = [
+        'product' => $product,
+        'quantity' => getSessionParam('cart')[$product['id']]
+    ];
+}
+$sum = getCartSum($cart);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($id = post('add')){
@@ -18,12 +22,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         deleteFromCart($id);
     }
 
-    redirect('/cart.php');
+    redirect('/cart');
 }
 
 echo renderWithWrap('layout', [
                                     'menu' => ['menu' => $menu],
                                     'cart' => ['cart' => $cart, 'sum' => $sum]]);
-
 
 

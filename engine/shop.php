@@ -10,3 +10,9 @@ function getProduct(int $id){
     $sql = "SELECT * FROM goods WHERE id = {$id}";
     return queryOne($sql);
 }
+
+function getProductsbyIds(array $ids){
+    $in = implode(', ', $ids);
+    $sql = "SELECT id, name, price FROM goods WHERE id IN ({$in})";
+    return queryAll($sql);
+}
