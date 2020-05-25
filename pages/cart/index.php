@@ -1,17 +1,18 @@
 <?php
 $menu = include_once CONFIG_DIR . "menu.php";
 
-//$cart = getSessionParam('cart');
-$productsIds = array_keys(getSessionParam('cart'));
-$products = getProductsbyIds($productsIds);
-$cart = [];
-foreach ($products as $product){
-    $cart[] = [
-        'product' => $product,
-        'quantity' => getSessionParam('cart')[$product['id']]
-    ];
+if (!empty(getSessionParam('cart'))) {
+    $productsIds = array_keys(getSessionParam('cart'));
+    $products = getProductsbyIds($productsIds);
+    $cart = [];
+    foreach ($products as $product) {
+        $cart[] = [
+            'product' => $product,
+            'quantity' => getSessionParam('cart')[$product['id']]
+        ];
+    }
+    $sum = getCartSum($cart);
 }
-$sum = getCartSum($cart);
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($id = post('add')){
