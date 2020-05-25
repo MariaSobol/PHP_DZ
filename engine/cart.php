@@ -91,10 +91,9 @@ function addOrder(int $userId, array $cart){
     $sqlAddOrder = "INSERT INTO orders (user_id)
                     VALUES ('{$userId}')";
 
-    //TODO: получить $order_id
-    $order_id = 0;
-
     if (execute($sqlAddOrder)){
+        $order_id = getInsertedId();
+
         foreach($cart as $product_id => $quantity) {
             $sql = "INSERT INTO product_in_order (product_id, order_id, quantity)
                     VALUES ('{$product_id}', '{$order_id}', '{$quantity}')";
@@ -102,8 +101,13 @@ function addOrder(int $userId, array $cart){
                 return false;
             }
         }
-    }else{
+    }
+    else{
         return false;
     }
     return true;
+}
+
+function clearCart(){
+    deleteSessionParam('cart');
 }

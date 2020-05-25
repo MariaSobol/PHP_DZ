@@ -30,3 +30,7 @@ function queryOne(string $sql){
 function closeConnection(){
     return mysqli_close(getConnection());
 }
+
+function getInsertedId(){
+    return mysqli_insert_id(getConnection());
+}

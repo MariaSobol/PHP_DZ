@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         setSessionParam('user_id', $user['id']);
         setSessionParam('user_login', $login);
         setSessionParam('user_name', $user['name']);
-        redirect($_SERVER['HTTP_REFERER']);
+        redirect('/cart');
     } else {
         echo "Указано неверное имя пользователя или пароль. Повторите ввод информации";
     }
