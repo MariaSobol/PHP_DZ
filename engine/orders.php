@@ -27,10 +27,16 @@ function getAllOrders(){
     return queryAll($sql);
 }
 
-function changeOrderStatus(int $order_id, string $status){
+function getAllStatuses(){
+    $sql = "SELECT * FROM order_status";
+    return queryAll($sql);
+}
+
+function changeOrderStatus(int $order_id, int $status_id){
     $sql ="UPDATE orders
-           SET status = '{$status}'
+           SET status_id = '{$status_id}'
            WHERE id = '{$order_id}'";
 
     return execute($sql);
 }
+
