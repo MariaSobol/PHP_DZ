@@ -1,10 +1,14 @@
 <?php
 
+if (!getSessionParam('user_login') == 'admin'){
+    redirect('/auth/login');
+} else{
+    $statuses = getAllStatuses();
 
-$statuses = getAllStatuses();
+    $orders = getAllOrders();
 
-$orders = getAllOrders();
+    echo renderWithWrap('layout', [
+        'orders' => ['orders' => $orders, 'statuses' => $statuses]
+    ]);
+}
 
-echo renderWithWrap('layout', [
-    'orders' => ['orders' => $orders, 'statuses' => $statuses]
-]);
