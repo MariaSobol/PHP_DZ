@@ -1,0 +1,9 @@
+CREATE TABLE `order_status` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`status` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=5
+;
