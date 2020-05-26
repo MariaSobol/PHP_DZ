@@ -84,3 +84,7 @@ function getCartSum(array $cart){
     }
     return $sum;
 }
+
+function clearCart(){
+    deleteSessionParam('cart');
+}

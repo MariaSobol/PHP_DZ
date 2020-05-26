@@ -22,3 +22,8 @@ function logout(){
     }
     session_destroy();
 }
+
+function deleteSessionParam($key){
+    setSession();
+    unset($_SESSION[$key]);
+}

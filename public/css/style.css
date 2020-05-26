@@ -59,4 +59,10 @@ html, body {
     grid-template-columns: 30% 20% 15% 20% 15%;
 }
 
+.orders{
+    display: grid;
+    height: 50px;
+    grid-template-columns: 30% 30% 30%
+}
+
 

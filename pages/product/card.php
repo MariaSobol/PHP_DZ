@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         saveComment($id, $author_name, $content);
     }
 
-    redirect('/card.php?id=' . "{$id}");
+    redirect('/product/card?id=' . "{$id}");
 }
 
 $comments = getComments($id);
